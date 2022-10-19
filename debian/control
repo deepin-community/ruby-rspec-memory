@@ -1,0 +1,24 @@
+Source: ruby-rspec-memory
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Hideki Yamane <henrich@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               gem2deb (>= 1),
+               ruby-rspec (>= 3.0), ruby-rspec (<< 4.0),
+Standards-Version: 4.5.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-rspec-memory.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-rspec-memory
+Homepage: https://github.com/socketry/rspec-memory
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-rspec-memory
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends},
+         ${ruby:Depends},
+         ${shlibs:Depends}
+Description: RSpec helpers for checking memory allocations
+ RSpec::Memory makes assertions about memory usage.

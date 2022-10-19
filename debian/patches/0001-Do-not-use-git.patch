@@ -1,0 +1,23 @@
+From: Hideki Yamane <henrich@debian.org>
+Date: Sun, 7 Jun 2020 19:13:00 +0900
+Subject: Do not use git
+
+---
+ rspec-files.gemspec | 4 +---
+ 1 files changed, 1 insertions(+), 3 deletions(-)
+
+Index: ruby-rspec-memory/rspec-memory.gemspec
+===================================================================
+--- ruby-rspec-memory.orig/rspec-memory.gemspec
++++ ruby-rspec-memory/rspec-memory.gemspec
+@@ -11,9 +11,7 @@ Gem::Specification.new do |spec|
+ 	spec.summary       = "RSpec helpers for checking memory allocations."
+ 	spec.homepage      = "https://github.com/socketry/rspec-memory"
+ 
+-	spec.files         = `git ls-files -z`.split("\x0").reject do |f|
+-		f.match(%r{^(test|spec|features)/})
+-	end
++	spec.files         = Dir['**/*'].reject { |f| f =~ %r{^(debian|test|spec|features)/} }
+ 	
+ 	spec.require_paths = ["lib"]
+ 	
